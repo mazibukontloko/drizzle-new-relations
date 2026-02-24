@@ -6,4 +6,4 @@ const app = express();
 app.use(cors())
 app.use(express.json())
 
-app.listen(8081, () => console.log("started express server"));
+app.listen(8081, () => console.log("start express server, for testing drizzle relations"));
