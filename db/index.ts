@@ -1,7 +1,13 @@
-import { drizzle } from "drizzle-orm/better-sqlite3";
-import Database from "better-sqlite3";
+import "dotenv/config";
+
+import { drizzle } from "drizzle-orm/node-postgres";
+import { Pool } from "pg";
 import { relations } from "./relations";
 
-const sqlite = new Database('drizzle-new-rel.db');
-export const db = drizzle({ client: sqlite, relations });
+const pool = new Pool({
+    connectionString: process.env.DATABASE_URL!
+})
+
+export const db = drizzle({ client: pool, relations });
+console.log("in connection");
     
